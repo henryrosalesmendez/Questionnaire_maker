@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="js/vue.js"> </script>
+    <script src="js/qstmaker.js"> </script>
+    <link rel="stylesheet" type="text/css" href="css/qstmaker.css">    
+</head>
+
+
+<body onload="environment()">
+
+
+    <div id="app">
+       <p v-if="finalized">{{corrected_responses()}}/{{total_responses()}}  {{corrected_responses()*100/total_responses()}}% </p>
+       <div v-for="(litems, index) in list_questions" class="padd1">
+            <Questionnaire 
+                :myid="index" 
+                ref="questionnaire"  
+                :items="litems.items" 
+                :description="litems.description"
+                :ttal="list_questions.length"
+                v-show="showDiv(index)">
+            </Questionnaire>
+            <!-- <Questionnaire myid=1 ref="questionnaire"></Questionnaire> -->
+       </div>
+        
+        <!-- buttons -->
+        
+        <div class = "col-lg-12">
+            <div class='bothside'>
+                <div style='float: left;'>
+                  <p v-if="finalized">{{corrected_responses()}}/{{total_responses()}}  {{corrected_responses()*100/total_responses()}}% </p>
+                </div>
+                <div style='float: right;' v-if="!finalized">
+                    <button @click="bnt_see_answer" type="button" class="btn btn-success">See answer</button>
+                    <button @click="btn_previous" :disabled="first_element" type="button" :class="classPreviousBtn">Previous</button>
+                    <button @click="btn_next" :disabled="last_element" type="button" :class="classNextBtn">Next</button>
+                    <button @click="btn_end" type="button" class="btn btn-danger">End!</button>
+                </div>
+            </div>
+        </div>
+        <!-- -->
+        
+    </div> 
+<br><br><br>
+</body>
+</html>
