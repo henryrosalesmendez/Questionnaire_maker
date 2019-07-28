@@ -420,3 +420,36 @@ ul {
 .heading{
     
 }
+
+
+
+.cazul {
+    color: #21559b;
+}
+
+.cbrown {
+    color: #b68256;
+}
+
+.cgreen{
+    color: #587c29;
+}
+
+.cmarronfuerte{
+    color: #6a340a;
+}
+
+.tablecode{
+    margin-top:50px;
+    padding: 40px;
+    border: 1px solid black;
+}
+
+.cred{
+    color: #f85c4a;
+}
+
+
+.cgray{
+    color: #aaaaaa;
+}

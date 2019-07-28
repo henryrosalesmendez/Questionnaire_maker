@@ -107,7 +107,7 @@ environment = function(){
         props: ["myid","items","description","ttal"],
         template: `        
             <div class = "parent_show drop-shadow_ligth">
-                <p class="heading">({{myid + 1}}/{{ttal}}) {{description}} <i>({{number_of_item_shoud_be_select}} Responses)</i></p>
+                <p class="heading">({{myid + 1}}/{{ttal}}) <span v-html="description"></span> <i>({{number_of_item_shoud_be_select}} Responses)</i></p>
                 <hr>
                 <div>
                     <ul>
@@ -216,10 +216,13 @@ environment = function(){
         
         data:{
             current_index: 0, // -1 indicate show all
+            skip_index: 0,
             finalized: false,
-            list_questions: [
+            list_questions: [                
+                
+                              
                 { 
-                    description:"How often do you play tennis?",
+                    description:"How <b>often</b> do you play <i>tennis</i>?",
                     items: [
                         {
                             caption: "On Tuesday.",
@@ -281,7 +284,19 @@ environment = function(){
                     
                 },
                 
-
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
 
                 
@@ -309,6 +324,11 @@ environment = function(){
             
             btn_next(){
                 this.current_index +=1;
+            },
+            
+            btn_skip(){
+                var value = parseInt(this.skip_index) - 1;
+                this.current_index =value;
             },
             
             btn_previous(){

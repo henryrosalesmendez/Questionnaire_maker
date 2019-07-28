@@ -31,6 +31,10 @@
             <div class='bothside'>
                 <div style='float: left;'>
                   <p v-if="finalized">{{corrected_responses()}}/{{total_responses()}}  {{corrected_responses()*100/total_responses()}}% </p>
+                  <div v-else>
+                      <input type="text" style="width:50px" v-model="skip_index" placeholder="edit me"> 
+                      <button @click="btn_skip" type="button">Go!</button>
+                  </div>
                 </div>
                 <div style='float: right;' v-if="!finalized">
                     <button @click="bnt_see_answer" type="button" class="btn btn-success">See answer</button>
