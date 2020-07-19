@@ -14,11 +14,13 @@ environment = function(){
                     
                     <input v-if="!radioinputs" type="checkbox" v-model="item.selectedByUser" value=false :disabled="state_revision_item" name="foo" @click="selecting_check()">
                     
-                    &nbsp;{{item.caption}}<br>
+                    &nbsp;
+                    <span v-html="item.caption"></span>
+                    <br>
                 </div>  
             </div>
             <div v-if="somethingToSay()" class="footer_item" :show="false">
-                {{item.toSay}}
+                <span v-html="item.toSay"></span>
             </div>
         </div>
         `,
